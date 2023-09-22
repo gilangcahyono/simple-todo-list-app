@@ -3,11 +3,11 @@ const btnAdd = document.querySelector('button');
 const ul = document.querySelector('ul');
 
 ul.addEventListener('click', (e) => {
-  if (e.target.nodeName === 'SPAN') {
-    e.target.classList.toggle('done');
+  if (e.target.nodeName === 'INPUT') {
+    e.target.nextSibling.classList.toggle('done');
   }
 
-  if (e.target.id === 'delete' && confirm('Are you sure ?')) {
+  if (e.target.id === 'delete') {
     e.target.parentElement.remove();
   }
 });
@@ -45,13 +45,16 @@ btnAdd.addEventListener('click', () => {
 
   const li = document.createElement('li');
   const span = document.createElement('span');
+  const check = document.createElement('input');
   const button = document.createElement('button');
   const task = document.createTextNode(input.value);
   const textDelete = document.createTextNode('delete');
 
   span.append(task);
+  check.setAttribute('type', 'checkbox');
   button.append(textDelete);
   button.setAttribute('id', 'delete');
+  li.append(check);
   li.append(span);
   li.append(' - ');
   li.append(button);

@@ -1,6 +1,7 @@
-span {
-  cursor: pointer;
+ul li {
+  line-height: 25px;
 }
+
 .done {
   text-decoration: line-through;
 }
